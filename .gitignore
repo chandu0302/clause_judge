@@ -1,2 +1,5 @@
-__pycache
 .env
+__pycache__/
+.langgraph_api/
+*.jpg
+*.pdf

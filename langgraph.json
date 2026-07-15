@@ -1,0 +1,7 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "clause_judge": "./clause_judge.py:graph"
+  },
+  "env": "./.env"
+}

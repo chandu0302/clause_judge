@@ -105,7 +105,7 @@ class RiskReview(BaseModel):
 ## ---------------------------------------------------------------------------
 
 class State(TypedDict, total=False):
-    upload_bytes: bytes            # ← add: raw uploaded file
+    upload_bytes: bytes| str            # ← add: raw uploaded file
     upload_type: str               # ← add: "image" or "pdf"
     contract_text: str             # input: raw contract
     contract_type: str             # set by segmentation
@@ -419,6 +419,8 @@ def extract_text_from_upload(state: State, config: RunnableConfig):
     if not upload_bytes:
         return {"contract_text": ""}
 
+    if isinstance(upload_bytes, str):
+        upload_bytes = base64.b64decode(upload_bytes)
     # ---- PDF: try direct text extraction first (digital PDFs) ----
     if upload_type == "pdf":
         try:

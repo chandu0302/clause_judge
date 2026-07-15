@@ -1,0 +1,9 @@
+langgraph
+langgraph-cli
+langgraph-api
+langchain-core
+langchain-google-genai
+pydantic
+python-dotenv
+requests
+pypdf
